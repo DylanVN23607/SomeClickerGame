@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>idk</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body id="Everything">
+            <script> // start of script tag
+                let score = 0;
+                let booster = 1;
+                let autoclickers = 0;
+                let password = "AllHailRealirist"
+                function changeScore() {
+                score-=-booster
+                //document.getElementById("hscore").innerHTML=score
+}
+refresh()
+
+function refresh() {
+               setTimeout(() => {document.getElementById("hscore").innerHTML=score}, 200);
+               score+=autoclickers // act
+               setTimeout(() => {document.getElementById("autoclick").innerHTML="Autoclick (" + autoclickers + ") $100"}, 200)
+               setTimeout (() => {document.getElementById("boost_b").innerHTML="Buy Boost (" + booster + ") $25"}, 200)
+                setTimeout(() => {refresh()}, 200);
+            }
+
+
+               function boost() {
+                if (score>24) {
+                booster-=-1
+            score-=25
+            document.getElementById("boost_b").innerHTML="Buy Boost (" + booster + ") $25"
+            //document.getElementById("hscore").innerHTML=score
+    }
+}
+
+            function autoclick() {
+            if (score>99) {
+            autoclickers+=1
+            score-=100
+            document.getElementById("autoclick").innerHTML="Autoclick (" + autoclickers + ") $100"
+    }
+}
+
+function checkPassword() {
+    if (document.getElementById("password").value==password) {
+        document.getElementById("Everything").innerHTML+='<textarea id="setscore_area" placeholder="Set Score"></textarea>'
+        document.getElementById("Everything").innerHTML+='<button id="setscore_button" onclick="score=parseInt(document.getElementById('+ "'setscore_area'" + ').value)">Set Score</button>'
+        document.getElementById("Everything").innerHTML+='<textarea id="setbooster_area" placeholder="Set Boosters"></textarea>'
+        document.getElementById("Everything").innerHTML+='<button id="setbooster_button" onclick="booster=parseInt(document.getElementById('+ "'setbooster_area'" + ').value)">Set Boosters</button>'
+        document.getElementById("Everything").innerHTML+='<textarea id="setautoclicker_area" placeholder="Set Autoclickers"></textarea>'
+        document.getElementById("Everything").innerHTML+='<button id="setautoclickers_button" onclick="autoclickers=parseInt(document.getElementById('+ "'setautoclicker_area'" + ').value)">Set Autoclickers</button>'   
+    }
+}
+
+            </script><!--End of Script tag-->
+
+            <style>body {
+                background-color: black;
+            }
+            
+            .ctext {
+                color: white;
+                text-align: center;
+            }
+            
+            .center_img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }</style>
+            <h1 style="color: white;">Dylan/Realirist made this trashpile</h1>
+          <img src="https://cdn.discordapp.com/attachments/988400779197030400/1048215220230836254/button.png" onclick="changeScore()" class="center_img">
+          <h1 id="hscore" class="ctext"></h1>
+          <button onclick="boost()" id="boost_b" class="center_img">Buy Boost (1) $25</button>
+          <button id="autoclick" class="center_img" onclick="autoclick()">Autoclick (0) $100</button>
+          <textarea id="password" style="resize: none;" placeholder="Password"></textarea>
+          <button id="confirmPassword" onclick="checkPassword()">Confirm Password</button>
+          <br>
+          <br>
+    </body>
+</html>
